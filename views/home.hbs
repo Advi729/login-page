@@ -1,0 +1,33 @@
+<section>
+    <div class="text-center mt-5" id="log">
+        <div class="container fw-bold w-100 py-5 mt-5">    
+            <h1>Welcome to Shopping Cart,</h1>
+            <h2 class="text-center">
+                {{user}}
+                {{#unless user}} User{{/unless}}
+            </h2>
+            <a href="/logout" class="btn btn-outline-primary btn-lg px-5">Log out</a>
+            {{!-- <button class="btn btn-outline-primary btn-lg px-5" type="submit" form="form1" value="Log Out">Log Out</button> --}}
+        </div>
+    </div>
+</section>
+<section>
+        <div class="container">
+            <div class="row">
+                {{#each product}}
+
+                <div class="col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{this.image}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{this.name}}</h5>
+                            <p class="card-text">{{this.description}}</p>
+                            <a href="#" class="btn btn-primary">Buy now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                {{/each}}
+            </div>
+        </div>
+</section>
