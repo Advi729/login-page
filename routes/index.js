@@ -7,7 +7,7 @@ router.get('/',(req, res) => {
         res.redirect('/home');
     } else {
         res.render('index', {title: 'Login Page', 'loginError': req.session.loginError});
-        req.loginError = false;
+        req.session.loginError = false;
     }
   })
 

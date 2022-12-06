@@ -30,7 +30,7 @@ app.use(session({
   saveUninitialized: true
 }));
 
-function check(req, res, next){
+function checksession(req, res, next){
   if(req.session.user){
     next();
   }else{
@@ -39,9 +39,10 @@ function check(req, res, next){
 }
 
 app.use('/', indexRouter);
-app.use('/home', check, homeRouter);
+app.use('/home', checksession, homeRouter);
 
 app.get('/logout', (req, res) => {
+  // console.log(req.session.user);
   req.session.destroy((err) => {
       if(err) {
           console.log(err);
